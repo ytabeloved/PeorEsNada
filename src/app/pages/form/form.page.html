@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Publicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="guardar()" class="publicacion-form">
+
+    <!-- Campo Título -->
+    <div class="campo">
+      <label>Título</label>
+      <ion-input formControlName="titulo" placeholder="Título de la publicación"></ion-input>
+      <ion-text color="danger" *ngIf="form.get('titulo')?.touched && form.get('titulo')?.invalid">
+        <p *ngIf="form.get('titulo')?.errors?.['required']">El título es obligatorio.</p>
+        <p *ngIf="form.get('titulo')?.errors?.['minlength']">Debe tener al menos 5 caracteres.</p>
+      </ion-text>
+    </div>
+
+    <!-- Botón de fotografía + imagen -->
+    <div class="foto-seccion">
+      <ion-button expand="block" fill="solid" color="dark" (click)="takePhoto()">
+        📷 FOTOGRAFÍA
+      </ion-button>
+      <img *ngIf="imagen" [src]="imagen" class="foto-preview" />
+    </div>
+
+    <!-- Campo Descripción -->
+    <div class="campo">
+      <label>Descripción</label>
+      <ion-textarea formControlName="descripcion" placeholder="Descripción del aviso..."></ion-textarea>
+      <ion-text color="danger" *ngIf="form.get('descripcion')?.touched && form.get('descripcion')?.invalid">
+        <p *ngIf="form.get('descripcion')?.errors?.['required']">La descripción es obligatoria.</p>
+        <p *ngIf="form.get('descripcion')?.errors?.['minlength']">Debe tener al menos 20 caracteres.</p>
+      </ion-text>
+    </div>
+
+    <!-- Botón Guardar -->
+    <ion-button expand="block" type="submit" color="primary" [disabled]="form.invalid">
+      GUARDAR
+    </ion-button>
+
+  </form>
+</ion-content>

@@ -1,0 +1,34 @@
+.titulo-centro {
+  text-align: center;
+  font-weight: bold;
+}
+
+.item-publicacion {
+  --min-height: 80px;
+  align-items: center;
+}
+
+.item-publicacion ion-thumbnail img {
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+  border-radius: 4px;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.fecha {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
