@@ -1,0 +1,7 @@
+{
+  "name": "PeorEsNada",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
